@@ -4,12 +4,13 @@ let lost = document.getElementById("lost");
 let checked = document.getElementById('checked');
 let playNumber = document.getElementById('play-number');
 let numberRandom = null;
-let activeProfit = 0;
-let activeLost = 0;
-profit.textContent = activeProfit;
-lost.textContent = activeLost;
+let activeProfit = JSON.parse(localStorage.getItem("profit")) ?? null;
+let activeLost = JSON.parse(localStorage.getItem("lost"))  ?? null;
 let rendomCoeficient = 100;
 let n = 10;
+
+profit.textContent = activeProfit;
+lost.textContent = activeLost;
 
 function rendomCoeficientCecked(){
     if(activeProfit >= n){
@@ -37,7 +38,6 @@ checked.addEventListener('click', send);
 
 playNumber.addEventListener('keypress', function(e){
     if(e.key === 'Enter'){
-        console.log(e.key);
         send();
     }
 });
@@ -45,13 +45,17 @@ playNumber.addEventListener('keypress', function(e){
 function send(){
     if(+playNumber.value === numberRandom){
         activeProfit++;
+        console.log(activeProfit);
         activeLost++;
+        localStorage.setItem('profit', JSON.stringify(activeProfit));
+        localStorage.setItem('lost', JSON.stringify(activeLost));
         profit.textContent = activeProfit;
         lost.textContent = activeLost;        
-        playNumber.value = null
+        playNumber.value = null;
     }else{
         activeLost++;
-        lost.textContent = activeLost;        
+        lost.textContent = activeLost;   
+        localStorage.setItem('lost', JSON.stringify(activeLost)); 
         playNumber.value = null
     }
     rendomCoeficientCecked();
