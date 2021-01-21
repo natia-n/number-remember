@@ -17,4 +17,9 @@ body{
 
 input{
     padding: 5px;
+    margin: 10px;
+}
+
+.random-number span{
+    font-size: 30px;
 }
