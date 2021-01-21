@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.data-game :last-child{
+    cursor: pointer;
+}
+
+.result{
+    margin-top: 40px;
+}
+
+.random-number{
+    height: 50px;
+}
+
+input{
+    padding: 5px;
+}
