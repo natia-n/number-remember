@@ -35,6 +35,13 @@ mathRandom(rendomCoeficient);
 
 checked.addEventListener('click', send);
 
+playNumber.addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){
+        console.log(e.key);
+        send();
+    }
+});
+
 function send(){
     if(+playNumber.value === numberRandom){
         activeProfit++;
