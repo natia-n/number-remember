@@ -65,7 +65,7 @@ function removeRandomNumber(){
         setTimeout(() => {
             randomNumber.textContent = null;
             playNumber.value = null
-        }, 1000);
+        }, 500);
     }
 }
 
